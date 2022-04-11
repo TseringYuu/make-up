@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #canvas {
+            height: 100vh;
+            width: 100vw;
+            background-color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas"></div>
+    <script src="./zrender.js"></script>
+    <script>
+        const LIPSTICK_SIZE = 3;
+        const LIPSTICK_COLOR = 'red';
+    </script>
+    <script>
+        const container = document.querySelector('#canvas');
+        const cvs = zrender.init(container);
+        const w = cvs.getWidth();
+        const h = cvs.getHeight();
+        const center = {
+            x: w * .5,
+            y: h * .5,
+        };
+
+        const img = new zrender.Image({
+            style: {
+                image: 'https://t7.baidu.com/it/u=1819248061,230866778&fm=193&f=GIF',
+            },
+        });
+
+        cvs.add(img);
+
+        setTimeout(() => {
+            console.log(img.getHeight());
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
