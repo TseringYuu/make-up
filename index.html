@@ -1,54 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-            margin: 0;
+        body>* {
+            position: absolute;
         }
-
-        #canvas {
-            height: 100vh;
-            width: 100vw;
-            background-color: #111;
+        .circle {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-image: radial-gradient(circle, rgba(255, 0, 0, .3), transparent, transparent);
+            z-index: 99;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
-
 <body>
-    <div id="canvas"></div>
-    <script src="./zrender.js"></script>
-    <script>
-        const LIPSTICK_SIZE = 3;
-        const LIPSTICK_COLOR = 'red';
-    </script>
-    <script>
-        const container = document.querySelector('#canvas');
-        const cvs = zrender.init(container);
-        const w = cvs.getWidth();
-        const h = cvs.getHeight();
-        const center = {
-            x: w * .5,
-            y: h * .5,
-        };
+    <!-- <div class="circle"></div> -->
+    <img src="https://i0.hdslb.com/bfs/article/cc9aee493f7314db786e84f3ddf1153adeb4e640.jpg@942w_1479h_progressive.webp" alt="">
 
-        const img = new zrender.Image({
-            style: {
-                image: 'https://t7.baidu.com/it/u=1819248061,230866778&fm=193&f=GIF',
-            },
+    <script>
+
+        document.addEventListener('click', function (e) {
+            const circle = document.createElement('div'); // <div></div>
+            circle.classList.add('circle'); // <div class="circle"></div>
+            circle.style.left = e.pageX + 'px';
+            circle.style.top = e.pageY + 'px';
+            document.body.appendChild(circle);
         });
-
-        cvs.add(img);
-
-        setTimeout(() => {
-            console.log(img.getHeight());
-        }, 1000);
 
     </script>
 </body>
-
 </html>
